@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+        
+        html{
+            scroll-behavior: smooth;
+        }
+        
+        body{
+            background-color:#080808;
+            color: #ffff;
+        }
+        
+        #header{
+            width: 100%;
+            height: 100vh;
+            background-image: url(./images/tom-morel-ktVazL5c7FM-unsplash.jpg);
+            background-size: cover;
+            background-position:center;
+        }
+        
+        .container{
+            padding: 10px 10%;
+        }
+        
+        nav{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .logo{
+            width: 140px;
+        }
+        
+        nav ul li{
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+        
+        nav ul li a{
+            color:#ffff;
+            text-decoration: none;
+            font-size:18px; 
+            position: relative;
+        }
+        
+        nav ul li a::after{
+            content: '';
+            width: 0;
+            height:3px;
+            background: #ff004f;
+            position: absolute;
+            left:0;
+            bottom:-6px;
+            transition: 0.5s;
+        }
+        
+        nav ul li a:hover::after{
+            width:100%;
+        }
+        
+        .header-text{
+            margin-top: 20%;
+            font-size: 30px;
+        }
+        
+        .header-text h1{
+            font-size: 60px;
+            margin-top: 20px;
+        }
+        
+        .header-text h1 span{
+            color: #ff004f;
+        }
+        
+        /*----About----*/
+        
+        #about{
+            padding: 80px 0;
+            color: #ababab ;
+        }
+        
+        .row{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .about-col-1{
+            flex-basis: 35%;
+        }
+        
+        .about-col-1 img{
+            width: 100%;
+            border-radius: 15px;
+        }
+        
+        .about-col-2{
+            flex-basis: 60%;
+        }
+        
+        .subtitle{
+            font-size: 60px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .tab-titles{
+            display: flex;
+            margin: 20px 0 40px;
+        }
+        
+        .tab-links{
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .tab-links::after{
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+        
+        .tab-links.active-link::after{
+            width: 100%;
+        }
+        
+        .tab-contents ul li{
+            list-style: none;
+            margin: 10px 0;
+        }
+        
+        .tab-contents ul li span{
+            color: #b54769;
+            font-size: 14px;
+        }
+        
+        .tab-contents {
+            display: none;
+        }
+        
+        .tab-contents.active-tab{
+            display: block;
+        }
+        
+        
+        /*Services*/
+        #services{
+            padding: 30px;
+            color: #fff;
+        }
+        
+        .services-list{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .services-list div{
+            background: #262626;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            border-radius: 30px;
+            transition: background 0.5s, transform 0.5s;
+        }
+        
+        .services-list div i{
+           font-size: 50px;
+           margin-bottom: 30px; 
+            color: #fff;
+        }
+        
+        .services-list div h2{
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .services-list div a{
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        
+        .services-list div:hover{
+            background: #ff004f;
+            transform: translateY(-10px);
+        }
+        
+        /*----portfolio----*/
+        #portfolio{
+            padding: 50px 0;
+            color: #fff;
+        }
+        
+        .work-list{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            grid-gap: 40px;
+            margin-top: 50px;  
+        }
+        
+        .work{
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .work img{
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .layer{
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+        
+        .layer h3{
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .layer a{
+            margin-top: 20px;
+            color: #ff004f;
+            text-decoration: none;
+            font-size: 17px;
+            line-height: 60px;
+            background: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+        }
+        
+        .work:hover img{
+            transform: scale(1.1);
+        }
+        
+        .work:hover .layer{
+            height: 100%;
+        }
+        
+        .btn{
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 2px solid;
+            padding: 14px 50px;
+            border-color: #ff004f;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.5s;
+        }
+        
+        
+        .btn:hover{
+            background: #ff004f;
+        }
+        
+        /*----Contact----*/
+        .contact-left{
+            flex-basis: 35%;
+            color: #fff;
+        }
+        
+        
+        .contact-right{
+            flex-basis: 60%;
+        }
+        
+        .contact-left p{
+            margin-top: 30px;
+        }
+        
+        .contact-left p i{
+            color: #ff004f;
+            margin-right:15px;
+            font-size: 25px;
+        }
+        
+        .social-icons{
+            margin-top: 30px;
+        }
+        
+        .social-icons a{
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+        
+        .social-icons a:hover{
+            color: #ff004f;
+            transform: translateY(-5px);
+        }
+        
+        .btn.btn2{
+            display: inline-block;
+            background: #ff004f;
+        }
+        
+        .contact-right form{
+            width: 100%;
+        }
+        
+        form input, form textarea{
+            width: 100%;
+            border:0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+        
+        form .btn2{
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        /*small screen*/
+        nav .fa-solid{
+            display: none;
+        }
+        
+        @media only screen and (max-width:600px){
+            
+            #header{
+                background-image: url(./images/tom-morel-ktVazL5c7FM-unsplash.jpg);
+            }
+        
+            .header-text{
+                margin-top: 100%;
+                font-size: 16px;
+            }
+        
+            .header-text h1{
+                font-size: 30px;
+            }
+        
+            nav .fa-solid{
+                display: block;
+                font-size: 25px;
+            }
+        
+            nav ul{
+                background: #ff004f;
+                position: fixed;
+                top: 0;
+                right: -200px;
+                width: 200px;
+                height: 100vh;
+                padding-top: 50px;
+                z-index: 2;
+                transition: right 0.5s;
+            }
+        
+            nav ul li{
+                display: block;
+                margin: 25px;
+            }
+        
+            nav ul .fa-solid{
+                position: absolute;
+                top: 25px;
+                left:25px;
+                cursor: pointer;
+            }
+        
+            .subtitle{
+                font-size: 40px;
+            }
+            .about-col-1, .about-col-2{
+                flex-basis: 100%;
+            }
+        
+            .about-col-1{
+                margin-bottom: 30px ;
+            }
+        
+            .about-col-2{
+                font-size: 14px;
+            }
+        
+            .tab-links{
+                font-size: 16px;
+                margin-right: 20px;
+            }
+        
+            .contact-left, .contact-right{
+                flex-basis: 100%;
+            }
+        }
+        
+        #msg{
+            color: #61b752;
+            margin-top:-10px;
+            display: block;
+        }</style>
+    <link rel="stylesheet" href="portfolio_2_css.css">
+    <script src="https://kit.fontawesome.com/883d459486.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+            
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i> 
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>B.E. CSE Student</p>
+                <h1>Hi, I am <span>Arpita Singh</span></h1>
+            </div>
+        </div>
+    </div>
+    <!-----About---->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="C:\Users\Dell\Downloads\photo.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About Me</h1>
+                        <p>I am a passionate coder with a penchant for problem solving.
+                            Exploring the depths of philosophical literature, strategizing intricate chess moves, immersing in nature through outdoor adventures, and indulging in culinary experimentation; these pursuits ignite my passion for knowledge, strategy, exploration, and creativity, enriching my life with fulfillment and growth.</p>
+                
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>GRAPHIC Designing</span><br>Designing Web/App interfaces</li>
+                            <li><span>Web Development</span><br>Web app development</li>
+                           
+
+                        </ul>
+                    </div>
+                
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>Worked on some projects alloted by my university.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2016-2022</span><br>Completed High School Education at DAV public school</li>
+                            <li><span>2023-Present</span><br>Currently pursuing B.E. CSE at Chitkara University</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+<!---Services-->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>IPR & Cyber laws</h2>
+                <p>Understanding Intellectual Property Rights (IPR) and Cyber Law is crucial in navigating the complexities of digital innovation and safeguarding creative and technological assets in the modern interconnected world.                </p>
+                <a >Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-crop"></i>
+                <h2>Graphic Design</h2>
+                <p>Graphic design is the art of visually communicating ideas, messages, and information through the skillful arrangement of typography, images, and other visual elements.
+                </p>
+                <a >Learn more</a>
+            </div>
+            <div>
+                <i class="fa-brands fa-app-store-ios"></i>
+                <h2>app development</h2>
+                <p>App development involves the creation of software applications for mobile devices or desktop computers to meet specific user needs and enhance user experiences through programming and design.
+                </p>
+                <a >Learn more</a>
+            </div>                    
+        </div>
+    </div>
+</div>
+
+<!--Portfolio-->
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>  
+        <div class="work-list">
+            <div class="work">
+                <img src="./images/Screenshot 2023-11-13 203440.png" alt="">
+                <div class="layer">
+                    <h3>Personal Resume Page</h3>
+                    <p>Showcasing professional achievements, skills and experiences in a visually compelling way</p>
+                    <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>    
+            </div>
+        
+            <div class="work">
+                <img src="./images/vishnu-mohanan-AcTlEUJJEIg-unsplash.jpg" alt="">
+                <div class="layer">
+                    <h3>Path-following Robot</h3>
+                    <p>Use of Atmel AtMega-8 with IR sensors to develop autonomous systems that seamlessly navigate through designated paths</p>
+                    <a href="https://circuitdigest.com/microcontroller-projects/line-follower-robot-using-avr-microcontroller-atmega16  "><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>  
+            </div>
+        
+            <div class="work">
+                <img src="./images/mohammad-rahmani-Hb-WIlu_VYM-unsplash.jpg" alt="">
+                <div class="layer">
+                    <h3>Open-source Emulator Vita3K</h3>
+                    <p>Actively testing latest releases of Vita3K with regular error-reporting to developers</p>
+                    <a href="https://vita3k.org/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>  
+            </div>
+        </div>
+        <a href="#" class="btn"> See more</a>
+    </div>
+</div>
+
+<!--Contact-->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>admeasr2006@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>+91 7814064687</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/arpita-singh-395163292"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/Arpita82/my_profile.git"><i class="fa-brands fa-square-github"></i></a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type='email' name="email" placeholder="Your E-mail" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id='msg'></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var tablinks=document.getElementsByClassName('tab-links')
+    var tabcontents=document.getElementsByClassName('tab-contents')
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove('active-link');
+        }
+
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove('active-tab');
+        }        
+        event.currentTarget.classList.add('active-link');
+        document.getElementById(tabname).classList.add('active-tab');
+    }
+</script>
+
+<script>
+    var sidemenu=document.getElementById('sidemenu');
+
+    function openmenu(){
+        sidemenu.style.right="0";
+        }
+
+    function closemenu(){
+        sidemenu.style.right="-200px";
+    }
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzFeGXcwnzSe_LOXhGYjcEY6gJ6M29aAVqBa-QkQTRvTTRDLbILTPG6OI0eoGSCNmUH/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById('msg')
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML='Message sent successfully'
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+</html>
